@@ -175,7 +175,7 @@ RC appendEmptyBlock(SM_FileHandle *fHandle)
 
 RC ensureCapacity(int numberOfPages, SM_FileHandle *fHandle)
 {
-    int expandNumPages = fHandle->totalNumPages - numberOfPages;
+    int expandNumPages = numberOfPages - fHandle->totalNumPages;
 
     if (expandNumPages <= 0)
     {
