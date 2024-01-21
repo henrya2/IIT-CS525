@@ -91,7 +91,7 @@ RC readBlock(int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
     if (pageNum < 0 || pageNum >= fHandle->totalNumPages)
         return RC_READ_NON_EXISTING_PAGE;
 
-    int foff = fHandle->curPagePos * PAGE_SIZE;
+    int foff = pageNum * PAGE_SIZE;
     FILE* fp = (FILE*)fHandle->mgmtInfo;
     fseek(fp, foff, SEEK_SET);
     fread(memPage, 1, PAGE_SIZE, fp);
@@ -147,7 +147,7 @@ RC writeBlock(int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
     if (pageNum < 0 || pageNum >= fHandle->totalNumPages)
         return RC_READ_NON_EXISTING_PAGE;
 
-    int foff = fHandle->curPagePos * PAGE_SIZE;
+    int foff = pageNum * PAGE_SIZE;
     FILE* fp = (FILE*)fHandle->mgmtInfo;
     fseek(fp, foff, SEEK_SET);
     fwrite(memPage, 1, PAGE_SIZE, fp);
