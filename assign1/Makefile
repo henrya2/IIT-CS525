@@ -1,6 +1,6 @@
 
 OBJS =  dberror.o storage_mgr.o test_assign1_1.o
-MYOBJS = dberror.o storage_mgr.o mytest.o
+MYOBJS = dberror.o storage_mgr.o my_test1.o
 CFLAGS = -Wall -g
 CC = gcc
 INCLUDES =
